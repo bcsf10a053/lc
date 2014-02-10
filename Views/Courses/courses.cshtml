@@ -1,0 +1,88 @@
+@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>Learn Center | Courses</title>
+<meta charset="utf-8">
+    <link rel="stylesheet" href="~/Content/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="~/Content/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="~/Content/style.css" type="text/css" media="all">
+<script type="text/javascript" src="~/Scripts/jquery-1.5.2.js" ></script>
+<script type="text/javascript" src="~/Scripts/cufon-yui.js"></script>
+<script type="text/javascript" src="~/Scripts/cufon-replace.js"></script>
+<script type="text/javascript" src="~/Scripts/Molengo_400.font.js"></script>
+<script type="text/javascript" src="~/Scripts/Expletus_Sans_400.font.js"></script>
+<link href="../../Content/bootstrap.css" rel="stylesheet" />
+
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/html5.js"></script>
+<style type="text/css">.bg, .box2{behavior:url("js/PIE.htc");}</style>
+<![endif]-->
+<div class="body1">
+  <div class="main">
+      </div>
+</div>
+<div class="body2">
+  <div class="main">
+    <!-- content -->
+    <section id="content">
+      <div class="box1">
+        <div class="wrapper">
+          <article class="col1">
+            <div class="pad_left1">
+              <h2 class="pad_bot1">Basic Courses</h2>
+            </div>
+            <div class="wrapper pad_bot1">
+              <figure class="left marg_right1"></figure>
+              <p class="pad_bot1 pad_top2">.</p>
+</div>
+              
+            <div class="pad_left1">
+              <div class="box2">
+                <div class="wrapper">
+                  <div class="cols">
+                    <ul class="list3">
+                      <li><a href="#">Accounting</a></li>
+                      <li><a href="#">Database</a></li>
+                      <li><a id="c" href="#">Android</a></li>
+                      <li><a href="#">C#</a></li>
+                    </ul>
+                  </div>
+                  <div class="cols pad_left2"></div>
+                </div>
+              </div>
+              <p>&nbsp;</p>
+            </div>
+          </article>
+          <article class="col2 pad_left2">
+            <div class="pad_left1">
+              <h2>Special Courses</h2>
+            </div>
+            <ul class="list1 pad_bot1">
+              <li><a href="#">ASP.NET</a></li>
+              <li><a href="#">MVC.NET</a></li>
+              <li><a href="#">JAVA</a></li>
+              <li><a href="#">C++ </a>
+                <div class="pad_left1">
+                  <h2 class="marg_top1">&nbsp;</h2>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- content -->
+     </div>
+</div>
+    <script type="text/javascript" src="~/Scripts/jquery-1.7.1.js"></script>
+    <script>
+        $('#c').click(function () {
+            
+            window.location = "/Lectures/lecture" + "?name=" + "android"
+            return false;
+        });
+              </script>
+</html>

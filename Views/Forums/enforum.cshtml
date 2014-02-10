@@ -1,0 +1,175 @@
+@model Stack<LearnCenter.Models.forumtitles>
+@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>Learn Center | Teachers</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="~/Content/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="~/Content/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="~/Content/style.css" type="text/css" media="all">
+<script type="text/javascript" src="~/Scripts/jquery-1.5.2.js" ></script>
+<script type="text/javascript" src="~/Scripts/cufon-yui.js"></script>
+<script type="text/javascript" src="~/Scripts/cufon-replace.js"></script>
+<script type="text/javascript" src="~/Scripts/Molengo_400.font.js"></script>
+<script type="text/javascript" src="~/Scripts/Expletus_Sans_400.font.js"></script>
+<link href="../../Content/bootstrap.css" rel="stylesheet" />
+
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/html5.js"></script>
+<style type="text/css">.bg, .box2{behavior:url("js/PIE.htc");}</style>
+<![endif]-->
+    
+    <script type="text/javascript">
+        function fc() {
+            $.ajax({
+                type: 'POST', url: '/Forums/ans', data: $('#ContactForm').serialize(),
+                success: function (x) {
+                    $('#da').append('<fieldset><tr><td><h3>  Answer() </h3> </td><td>' + x + '</td></tr></fieldset>');
+                },
+                error: function () {
+                    alert('Wrong attempt,"Answer without a question"');
+                }
+            });
+
+            return false;
+        }
+     
+        
+        function fn(d) {
+           
+             
+               
+               
+                var countryId = parseInt(d);
+           
+                
+                
+                
+                
+                $("#da fieldset").remove();
+
+                $.getJSON("/Forums/Get?id=" + countryId, function (data) {
+                    
+                    $.each(data, function (i, item) {
+                        if (i == 0) {
+                            $("#da").append('<fieldset><legend class="m">  Question: </legend><p>' + item.ques + '</p><strong>By ' + item.name + '</strong><p class="t">' + item.time + '</p></fieldset>');
+
+                            
+                            
+                        }
+                        else {
+                            $("#da").append('<fieldset><tr><td><legend>  Answer(' + i + ') </legend> <p>' + item.title + '</p><strong>By ' + item.name + '</strong><p class="t">' + item.timea + '</p></fieldset>');
+                        }
+
+                       
+                    });
+
+                });
+                }
+
+            
+         
+        function fg(v) {
+           
+            var g = parseInt(v);
+
+
+
+            $.getJSON("/Forums/Get?id=" + g, function (data) {
+
+                $("#da").append(data.ques);
+                alert(data.ques);
+
+
+            });
+
+        }
+        function setbg(color) {
+            document.getElementById("styled").style.background = color
+        }
+
+        
+</script>
+  
+<div class="body1">
+  <div class="main">
+   
+  </div>
+</div>
+<div class="body2">
+  <div class="main">
+      <div class="box1">
+    <!-- content -->
+    <section id="content">
+     
+        <div class="scroll">
+            <h3 class="m">?(Questions)</h3>
+          
+            @foreach( var v in Model ){
+                  
+            <div class="r" onclick="fn('@v.tid')">
+                
+
+             <strong class="m">@v.title     @v.time</strong>
+              <p id="chek" >@v.ques</p>
+                    
+                </div>
+                    
+                   
+                
+                
+                              
+                
+            }
+                
+                
+            
+
+       </div>
+          <div class="mc">
+              <div id="da"></div>
+              <p></p>
+             
+              
+          
+        
+                  <form id="ContactForm" onsubmit="return fc();" method="post" class="form-horizontal">
+
+
+<!-- Form Name -->
+
+<!-- Text input-->
+<!-- Textarea -->
+ <fieldset>
+
+  
+  <div class="send-wrap">
+
+           <textarea name="ans"  id="styled" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">Write a reply....</textarea>
+
+            </div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="qs"></label>
+  <div class="col-md-4">
+    <button id="qs" name="qs" class="btn btn-primary">Post Your Answer</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+          
+              </div>
+         
+
+    </section>
+    <!-- content -->
+   </div>
+  </div>
+</div>
+    </body>
+</html>

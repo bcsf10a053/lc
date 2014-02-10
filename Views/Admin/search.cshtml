@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" href="dist/css/bootstrap.css">
+    @Scripts.Render("~/bundles/jquery")
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $("#sel").click(function () {
+                 var countryId = $("#sid").val();
+
+             
+
+
+                 $.getJSON("/Admin/search?id=" + countryId, function (data) {
+              
+                     $.each(data, function (i, item) {
+                         $("#ser").append('<p>' + item.Sname + '</p>');
+                         //alert('Id = ' + item.Id + " Name = " + item.Name);
+                     });
+
+                 });
+
+             });
+
+         });
+</script>
+</head>
+
+<body>
+<table width="656" height="359" border="0" align="center">
+  <tr>
+    <td colspan="2"><div class="container" id="wrap">
+	  <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+               <legend>Fill the Following Information To Search Video</legend>
+                   
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text" id="sid" name="firstname" value="1" class="form-control input-lg" placeholder="Enter Id"  />                        </div>
+                    
+                  </div>
+                  <button id="ser" class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
+                        Search </button>
+                     
+          </div>
+</div>            
+</div>
+</div>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="253"><p id "sel"></p>&nbsp</td>
+    <td width="393">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
